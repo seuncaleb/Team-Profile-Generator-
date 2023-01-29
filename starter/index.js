@@ -112,33 +112,53 @@ async function askMore() {
     console.log(manager1);
   });
 
-  await inquirer.prompt(options).then((answers) => {
-    if (answers.type === "Add an Engineer") {
-      inquirer.prompt(employeeQuestions).then((answers) => {
-        const engineer1 = new Engineer(
-          answers.name,
-          answers.Id,
-          answers.Email,
-          answers.Number,
-          answers.github
-        );
-        console.log(`picked add an engineer named ${engineer1.name}`);
+  repeat()
+}
+
+async function repeat() {
+    repeatQuestion()
+  await inquirer.prompt(options);
+ 
+}
+
+
+async function repeatQuestion(){
+
+    await inquirer.prompt(options).then((answers) => {
+        if (answers.type === "Add an Engineer") {
+          inquirer
+            .prompt(employeeQuestions)
+            .then((answers) => {
+              const engineer1 = new Engineer(
+                answers.name,
+                answers.Id,
+                answers.Email,
+                answers.Number,
+                answers.github
+              );
+              console.log(`picked add an engineer named ${engineer1.name}`);
+            }).then(repeat)
+            
+        }
+         else if (answers.type === "Add an Intern") {
+          inquirer
+            .prompt(InternQuestions)
+            .then((answers) => {
+              const intern1 = new Intern(
+                answers.name,
+                answers.Id,
+                answers.Email,
+                answers.Number,
+                answers.school
+              );
+              console.log(`picked add an intern named ${intern1.id} `);
+            }).then(repeat)
+            
+        } else if (answers.type === "Finish building the team") {
+          console.log("she wants the end");
+        } else {
+          console.log("something is wrong");
+        }
       });
-    } else if (answers.type === "Add an Intern") {
-      inquirer.prompt(InternQuestions).then((answers) => {
-        const intern1 = new Intern(
-          answers.name,
-          answers.Id,
-          answers.Email,
-          answers.Number,
-          answers.school
-        );
-        console.log(`picked add an intern named ${intern1.id} `);
-      });
-    } else if (answers.type === "Finish building the team") {
-      console.log("she wants the end");
-    } else {
-      console.log("something is wrong");
-    }
-  });
+
 }
