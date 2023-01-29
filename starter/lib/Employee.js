@@ -24,9 +24,7 @@ class Employee {
   }
 }
 
-const tobi = new Employee("tobi", 10, "calebibejigba@gmail.com");
 
-tobi.getEmail();
 
 
 module.exports = Employee
