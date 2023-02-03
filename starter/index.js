@@ -8,10 +8,10 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./src/page-template.js");
+const render = require("./src/page-template");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-
+const teamMembers = []
 // arrays of questions for mangers, employees, and Interns
 const mangerQuestions = [
   {
@@ -100,9 +100,7 @@ const options = [
   },
 ];
 
-
-// function asking the first set of questions to the manger when they first open the application 
-askMore();
+// function asking the first set of questions to the manger when they first open the application
 
 async function askMore() {
   await inquirer.prompt(mangerQuestions).then((answers) => {
@@ -112,6 +110,7 @@ async function askMore() {
       answers.Email,
       answers.Number
     );
+    teamMembers.push(managerOne)
     console.log(managerOne);
   });
 
@@ -122,7 +121,6 @@ async function askMore() {
 async function repeat() {
   repeatQuestion();
 }
-
 
 // functions that display option for employee or intern
 async function repeatQuestion() {
@@ -135,10 +133,11 @@ async function repeatQuestion() {
             answers.name,
             answers.Id,
             answers.Email,
-            answers.Number,
-            answers.github
+          
+            answers.github,
           );
-          console.log(`picked add an engineer named ${engineerOne.name}`);
+          teamMembers.push(engineerOne)
+          console.log(teamMembers)
         })
         .then(repeat);
     } else if (answers.type === "Add an Intern") {
@@ -149,18 +148,31 @@ async function repeatQuestion() {
             answers.name,
             answers.Id,
             answers.Email,
-            answers.Number,
-            answers.school
+            answers.school,
+           
+            
           );
-          console.log(`picked add an intern named ${internOne.id} `);
+          teamMembers.push(internOne)
+          console.log(teamMembers)
         })
         .then(repeat);
-    } else if (answers.type === "Finish building the team") {
-      console.log("she wants the end");
-    } else {
-      console.log("something is wrong");
+    } else   {
+      createFile();
     }
   });
 }
 
-//Manager.getOfficeNumber()
+
+function createFile() {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  } else {
+
+    fs.writeFileSync(outputPath, render(teamMembers), "UTF-8");
+    console.log(render(teamMembers));
+  }
+  
+}
+
+
+askMore()

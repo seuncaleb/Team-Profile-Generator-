@@ -18,4 +18,8 @@ class Intern extends Employee {
   }
 }
 
+let intern = new Intern("tobi", "23", "asdfsfsf", "asdfafsdf");
+
+intern.getSchool()
+
 module.exports  = Intern
