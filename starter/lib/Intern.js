@@ -14,7 +14,8 @@ class Intern extends Employee {
   }
 
   getRole() {
-    return Intern;
+    const role = "Intern";
+    return role;
   }
 }
 

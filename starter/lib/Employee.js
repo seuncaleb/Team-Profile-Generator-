@@ -20,11 +20,14 @@ class Employee {
   }
 
   getRole() {
-    return Employee;
+    const role = "Employee";
+    return role;
   }
 }
 
 
+let f = new Employee ("fred", 22, "jeunko ku")
 
+console.log(f.getRole())
 
 module.exports = Employee

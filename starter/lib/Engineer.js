@@ -15,7 +15,8 @@ class Engineer extends Employee {
   }
 
   getRole() {
-    return Engineer;
+    const role = "Engineer";
+    return role;
   }
 }
 

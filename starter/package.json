@@ -1,18 +1,22 @@
 {
   "name": "starter",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "jest --config=./jest.config.json --coverage"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.0.0",
     "test": "^3.2.1"
-  }
+  },
+  "devDependencies": {
+    "jest": "^29.4.1"
+  },
+  "keywords": [],
+  "description": ""
 }
