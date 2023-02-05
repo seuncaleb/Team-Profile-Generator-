@@ -5,7 +5,7 @@ const generateTeam = team => {
     const generateManager = Manager => {
         return `
         <div class="card employee-card">
-        <div class="card-header">
+        <div class="card-header text-white bg-primary">
             <h2 class="card-title">${Manager.getName()}</h2>
             <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${Manager.getRole()}</h3>
         </div>
@@ -24,7 +24,7 @@ const generateTeam = team => {
     const generateEngineer = Engineer => {
         return `
         <div class="card employee-card">
-    <div class="card-header">
+    <div class="card-header text-white bg-primary">
         <h2 class="card-title">${Engineer.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${Engineer.getRole()}</h3>
     </div>
@@ -43,7 +43,7 @@ const generateTeam = team => {
     const generateIntern = Intern => {
         return `
         <div class="card employee-card">
-    <div class="card-header">
+    <div class="card-header text-white bg-primary">
         <h2 class="card-title">${Intern.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${Intern.getRole()}</h3>
     </div>
@@ -107,7 +107,7 @@ module.exports = team => {
     </div>
     <div class="container">
         <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
+            <div class="team-area col-12 d-flex justify-content-around">
                 ${generateTeam(team)}
             </div>
         </div>
