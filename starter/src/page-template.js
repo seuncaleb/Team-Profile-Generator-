@@ -100,7 +100,7 @@ module.exports = team => {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
+            <div class="col-12 jumbotron mb-3 team-heading text-white bg-primary">
                 <h1 class="text-center">My Team</h1>
             </div>
         </div>
