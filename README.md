@@ -29,10 +29,9 @@ This week i built a web weather app using HTML, CSS, bootstrap,  Java Script and
 [ Repo link ](https://github.com/seuncaleb/Team-Profile-Generator-) 
 
 ## Project Image
-[Screenshot](./assets/screenshot%20weather%20app.png)
+![Screenshot](./assets/127.0.0.1_5500_starter_output_team.html.png)]
 
-## Link to Project
-[ Project link ](https://seuncaleb.github.io/Team-Profile-Generator-) 
+
 
  
 
